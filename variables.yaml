@@ -1,0 +1,16 @@
+- name: vars
+  hosts: local
+  connection: local
+  vars: #playbook varables- global variables
+   Name: Harini
+   city: Guntur
+  tasks: print
+   ansible.builtin.debug:
+    msg: "My name is {{Name}} and lives in {{city}}"
+  tasks: print
+   vars: #task level variables-local variables
+    Name: sai
+    city: Chow
+   ansible.builtin.debug:
+    msg: "My name is {{Name}} and lives in {{city}}"
+   
