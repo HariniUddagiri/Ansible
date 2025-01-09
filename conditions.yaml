@@ -1,0 +1,19 @@
+- name: check variable 
+  hosts: local
+  connection: local
+  vars:
+   a: 10
+  tasks:
+   - name: greater than 10
+     ansible.builtin.debug:
+      msg: "Given number {{a}} is gretaer than 10"
+     when: > 10 
+
+  tasks:
+   - name: less than or equal to 10
+     ansible.default.debug:
+      msg: "given number {{a}} less than or equal to 10"
+     when: <= 10
+
+
+ 
