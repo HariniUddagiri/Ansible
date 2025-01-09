@@ -1,5 +1,5 @@
 - name: print
-  hosts: local
+  hosts: local #no need to pass credentials while exceution as this is local & ansible handles it's own node server
   connection: local
   tasks:
   - name: play1
