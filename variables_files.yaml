@@ -5,7 +5,7 @@
    - detail.yaml
   tasks:
   - name: print
-     ansible.builtin.debug:
-      msg: "My name is {{Name}} and lives in {{city}}"
+    ansible.builtin.debug:
+     msg: "My name is {{Name}} and lives in {{city}}"
 
   
