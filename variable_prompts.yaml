@@ -1,0 +1,14 @@
+- name: variable
+  hosts: local
+  connection: local
+  vars_prompt:
+  - name: Name
+    prompt: Eneter your name
+    private: false #we will be able to see what is enetred
+  - name: City
+    prompt: Enter your city
+  tasks:
+   - name: print detail
+     ansible.builtin.debug:
+      msg: "My name is {{Name}} and city is {{City}}"
+   
