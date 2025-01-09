@@ -1,0 +1,11 @@
+- name: variable
+  hosts: local
+  connection: local
+  vars_files:
+   - detail.yaml
+  tasks:
+  - name: print
+     ansible.builtin.debug:
+      msg: "My name is {{Name}} and lives in {{city}}"
+
+  
