@@ -4,4 +4,4 @@
   tasks:
   - name: variable
     ansible.builtin.debug:
-     msg: "My name is {{Nmae}} and city is {{City}}"
+     msg: "My name is {{Name}} and city is {{City}}"
