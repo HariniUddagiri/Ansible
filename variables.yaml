@@ -8,7 +8,7 @@
   - name: print
     ansible.builtin.debug:
      msg: "My name is {{Name}} and lives in {{city}}"
-  tasks: 
+   
   - name: print
     vars: #task level variables-local variables
      Name: sai
