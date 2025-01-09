@@ -7,13 +7,13 @@
    - name: greater than 10
      ansible.builtin.debug:
       msg: "Given number {{a}} is gretaer than 10"
-     when: > 10 
+     when: a > 10 
 
   tasks:
    - name: less than or equal to 10
      ansible.inbuilt.debug:
       msg: "given number {{a}} less than or equal to 10"
-     when: <= 10
+     when: a <= 10
 
 
  
