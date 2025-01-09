@@ -11,7 +11,7 @@
 
   tasks:
    - name: less than or equal to 10
-     ansible.default.debug:
+     ansible.inbuilt.debug:
       msg: "given number {{a}} less than or equal to 10"
      when: <= 10
 
