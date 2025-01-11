@@ -3,8 +3,8 @@
   tasks: 
   - name: install package
     ansible.builtin.package:
-     name: 
-     state: 
+     name: "{{ item }}"
+     state: installed
     loop:
     - gcc
     - nginx
