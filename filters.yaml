@@ -17,4 +17,4 @@
       Name: Harini
       City: Guntur
     ansible.builtin.debug:
-     msg: "List is: {{Details | dict2items }}""
+     msg: "List is: {{Details | dict2items }}"
