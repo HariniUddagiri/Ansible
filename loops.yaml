@@ -1,0 +1,11 @@
+- name: loops
+  hosts: web
+  tasks:
+  - name: loops
+    ansible.builtin.debug:
+     msg: "Hi {{item}}"
+    loop:
+    - Harini
+    - sai
+    - Ram
+
