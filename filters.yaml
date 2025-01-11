@@ -18,3 +18,15 @@
       City: Guntur
     ansible.builtin.debug:
      msg: "List is: {{Details | dict2items }}"
+
+  - name: list to map
+    hosts: web
+    tasks: 
+    - name: list to map
+      vars:
+       Details:
+        {'key': 'Name', 'value': 'Harini'}
+        {'key': 'City', 'value': 'Guntur'}
+      ansible.builtin.debug:
+       msg: "map is: {{Details | items2dict}} "
+
