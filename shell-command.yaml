@@ -8,7 +8,7 @@
      
   - name: execuye1
     #ansible.builtin.command: ls -ltr
-    ansible.builtin.command: ls -ltrrr
+    ansible.builtin.command: lsf -ltrrr
     register: command_result
 
   - name: print output
