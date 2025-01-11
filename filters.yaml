@@ -28,3 +28,10 @@
     ansible.builtin.debug:
        msg: "map is: {{Details | items2dict}} "
 
+- name: lowercase
+  vars:
+   Name: "HARINI"
+  ansible.builtin.debug:
+   msg: "Name is {{Name | lower}}" 
+
+
