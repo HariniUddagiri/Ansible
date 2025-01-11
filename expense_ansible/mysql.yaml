@@ -1,0 +1,23 @@
+- name: Setup mysql server
+  hosts: web
+  tasks:
+  - name: Install mysql server
+    ansible.builtin.package:
+     name: mysql
+     state: installed
+
+  - name: Start and enable
+    ansible.builtin.service:
+    state: started
+    enabled: yes
+  
+  - name: connect to server
+    community.mysql.mysql_info:
+     login_user: root
+     login_password: ExpenseApp@1
+     login_host: 172.31.91.201
+    register: mysql_info
+
+  - name: print output
+    ansible.builtin.debug:
+     msg: "output is {{ mysql_info}}"
