@@ -2,6 +2,9 @@
   hosts: mysql
   become: yes
   tasks:
+  - name: instamm python mysql
+    ansible.builtin.pip:
+     name: PyMySQL
   - name: Install mysql server
     ansible.builtin.package:
      name: mysql-server
