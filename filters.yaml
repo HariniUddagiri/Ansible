@@ -34,4 +34,10 @@
     ansible.builtin.debug:
      msg: "Name is {{Name | lower}}" 
 
+  - name: upper case
+    vars:
+     Name: harini
+    ansible.builtin.debug:
+     msg: "Nmae is {{Name | upper}}"   
+
 
