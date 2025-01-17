@@ -2,7 +2,7 @@
   hosts: mysql
   become: yes
   tasks:
-  - name: instamm python mysql
+  - name: install python mysql
     ansible.builtin.pip:
      name: "{{ item }}"
      executable: pip3.9

@@ -1,0 +1,62 @@
+- notes: setupbackend
+  hosts: backend
+  become: yes
+  tasks:
+  - name: disable nodejs
+    ansible.builtin.command: dnf module disable nodejs -y
+
+  - name: enable nodejs 20
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+
+  - name: install nodejs
+    ansible.builtin.package:
+    name: nodejs
+    state: present
+
+  - name: add user
+    ansible.builtin.user:
+    name: expense
+
+  - name: create directory
+    ansible.builtin.file:
+    state: directory
+    path: /app
+
+  - name: download code
+    ansible.builtin.get_url:
+    url : https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+    dest: /app
+
+  - name: unzip the code
+    ansible.builtin.unarchive:
+    src: /app
+    dest: /tmp/backend.zip
+
+  - name: install npm dependencies
+    community.general.npm:
+    path: /app
+
+  - name: copy file
+    ansible.builtin.copy:
+    src: backend.service
+    dest: /etc/systemd/system/backend.service
+
+  - name: install mysql
+    ansible.builtin.package:
+    name: mysql
+    state: present
+
+  - name: load schema
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.daws82s.store
+      target: /app/schema/backend.sql
+
+  - name: reload deamon and start service
+    ansible.builtin.systemd_service:
+      state: restarted
+      daemon_reload: true
+      name: backend
