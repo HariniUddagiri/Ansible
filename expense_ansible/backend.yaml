@@ -10,12 +10,12 @@
 
   - name: install nodejs
     ansible.builtin.package:
-    name: nodejs
-    state: present
+     name: nodejs
+     state: present
 
   - name: add user
     ansible.builtin.user:
-    name: expense
+     name: expense
 
   - name: create directory
     ansible.builtin.file:
@@ -43,8 +43,8 @@
 
   - name: install mysql
     ansible.builtin.package:
-    name: mysql
-    state: present
+     name: mysql
+     state: present
 
   - name: load schema
     community.mysql.mysql_db:
