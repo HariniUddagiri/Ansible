@@ -48,7 +48,7 @@
      state: present
 
   - name: install python libraries
-    ansible.builin.pip:
+    ansible.builtin.pip:
      name: "{{item}}"
      executable: pip3.9
     loop:
