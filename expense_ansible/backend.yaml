@@ -24,13 +24,13 @@
 
   - name: download code
     ansible.builtin.get_url:
-    url : https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
-    dest: /app
+     url : https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+     dest: /app
 
   - name: unzip the code
     ansible.builtin.unarchive:
-    src: /app
-    dest: /tmp/backend.zip
+     src: /app
+     dest: /tmp/backend.zip
 
   - name: install npm dependencies
     community.general.npm:
@@ -38,8 +38,8 @@
 
   - name: copy file
     ansible.builtin.copy:
-    src: backend.service
-    dest: /etc/systemd/system/backend.service
+     src: backend.service
+     dest: /etc/systemd/system/backend.service
 
   - name: install mysql
     ansible.builtin.package:
