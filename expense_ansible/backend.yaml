@@ -34,7 +34,7 @@
 
   - name: install npm dependencies
     community.general.npm:
-    path: /app
+     path: /app
 
   - name: copy file
     ansible.builtin.copy:
