@@ -1,4 +1,4 @@
-- notes: frontend setup
+- name: frontend setup
   hosts: frontend
   become: yes
   tasks:
