@@ -1,4 +1,4 @@
-- notes: setupbackend
+- name : setupbackend
   hosts: backend
   become: yes
   tasks:
