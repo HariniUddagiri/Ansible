@@ -1,8 +1,8 @@
-- name: delete default  html directory
-  tags:
+- name: remove existing directory
+  tags: 
   - deployment
-   ansible.builtin.file:
-    path: "{{app_location}}" #backend: /app, frontend: /usr/share/nginx/html/
+  ansible.builtin.file:
+    path: "{{app_location}}" # backend folder is /app, frontend /usr/share/nginx/html
     state: absent
 
 
