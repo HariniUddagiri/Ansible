@@ -34,7 +34,8 @@
     path: /app
 
 - name: copy file
-  ansible.builtin.copy:
+  ansible.builtin.copy: #this will search in files folder
+  ansible.builtin.template: #this will search in template folder
     src: backend.service.j2
     dest: /etc/systemd/system/backend.service
 
