@@ -1,4 +1,5 @@
 - name : setupbackend
   hosts: backend
   become: yes
-  
+  roles:
+  - backend
