@@ -11,6 +11,6 @@
   
 - name: unzip the code
     ansible.builtin.unarchive:
-     src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-"{{component}}"-v2.zip
+     src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{component}}-v2.zip
      dest: "{{app_location}}" #backend: /app, frontend: /usr/share/nginx/html/
      remote_src : yes
