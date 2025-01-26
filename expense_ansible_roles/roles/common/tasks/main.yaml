@@ -9,9 +9,9 @@
 - name: create directory
   tags:
   - deployment
-    ansible.builtin.file:
-     state: directory
-     path: "{{app_location}}" #backend: /app, frontend: /usr/share/nginx/html/ 
+  ansible.builtin.file:
+    state: directory
+    path: "{{app_location}}" #backend: /app, frontend: /usr/share/nginx/html/ 
   
 - name: unzip the code
   tags:
