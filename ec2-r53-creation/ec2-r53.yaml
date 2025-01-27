@@ -7,6 +7,13 @@
     instance_type: t3.micro
     security_group: sg-01794459d60b74295
   tasks:
+  - name: install boto libraries
+    ansible.builtin.pip:
+     name: "{{item}}"
+     executable: pip3.9
+    loop:
+    - boto3
+    - botocore
   - name: create ec2
     amazon.aws.ec2_instance:
      name: "{{item}}"
@@ -19,13 +26,7 @@
      - backend
      - frontend
 
-  - name: install boto libraries
-    ansible.builtin.pip:
-     name: "{{item}}"
-     executable: pip3.9
-    loop:
-    - boto3
-    - botocore
+  
        
        
      
