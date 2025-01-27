@@ -1,5 +1,5 @@
 - name: filters
-  hosts: local
+  hosts: web
   tasks:
   - name: default variable
     ansible.builtin.debug:
