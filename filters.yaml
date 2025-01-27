@@ -47,8 +47,10 @@
      msg: "Maxi is {{Num | max}}, Mini is {{Num | min}}"
 
   - name: validipcheck
+    tags:
+    - ipcheck
     vars:
-     ip: "3.93.23.16"
+     ip: "355.93.237.16"
     ansible.builtin.debug:
      msg: "ip is {{ip | ansible.utils.ipaddr}}"
 
