@@ -3,8 +3,8 @@
   become: yes
   #vars:
     #mysql_root_password: ExpenseApp@1
-  vars_files:
-  - roles/mysql/vars/vault.yaml
+  #vars_files:
+  #- roles/mysql/vars/vault.yaml
   roles:
   - mysql
   
