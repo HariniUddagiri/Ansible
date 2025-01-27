@@ -6,6 +6,7 @@
     subnet_id: subnet-0cbb1c995adc71b95
     instance_type: t3.micro
     security_group: sg-01794459d60b74295
+    zone: daws82s.store
     instances:
     - mysql
     - backend
@@ -35,6 +36,18 @@
   - name: print private ip
     ansible.builtin.debug:
      msg: "{{item.instances[0].private_ip_address}}"
+    loop: "{{ec2_info.results}}"
+
+  - name: create route53 records
+    amazon.aws.route53:
+     state: present
+     zone: "{{zone}}"
+     record: "{{item.item}}.{{zone}}"
+     type: A
+     ttl: 1
+     value: "{{item.instances[0].private_ip_address}}"
+     wait: true
+     overwrite: true # if records are already created, will overwrite with new
     loop: "{{ec2_info.results}}"
 
   
