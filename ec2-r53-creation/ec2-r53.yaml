@@ -35,7 +35,7 @@
 
   - name: print private ip
     ansible.builtin.debug:
-     msg: "{{item.instances[1].private_ip_address}}"
+     msg: "{{item.instances[0].private_ip_address}}"
     loop: "{{ec2_info.results}}"
 
   - name: create private ip route53 records
@@ -45,7 +45,7 @@
      record: "{{item.item}}.{{zone}}"
      type: A
      ttl: 1
-     value: "{{item.instances[1].private_ip_address}}"
+     value: "{{item.instances[0].private_ip_address}}"
      wait: true
      overwrite: true # if records are already created, will overwrite with new
     loop: "{{ec2_info.results}}"
@@ -57,7 +57,7 @@
      record: "{{zone}}"
      type: A
      ttl: 1
-     value: "{{item.instances[1].public_ip_address}}"
+     value: "{{item.instances[0].public_ip_address}}"
      wait: true
      overwrite: true # if records are already created, will overwrite with new
     loop: "{{ec2_info.results}}"
